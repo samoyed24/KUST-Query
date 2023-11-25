@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static "index/index.css" %}">
+<div class="content">
+    <h3>查询功能(持续更新中)</h3>
+    <ul class="menu">
+        <li><a href="{% url "query:login" "grade" %}">成绩单下载</a></li>
+        <li><a href="{% url "query:login" "table" %}">课表下载</a></li>
+        <li><a href="{% url "query:login" "card" %}">校园卡信息查询</a></li>
+    </ul>
+    <h3>其他</h3>
+    <ul class="menu">
+        <li><a href="{% url "query:message"  %}">留言板</a></li>
+        <li><a href="{% url "query:logs"  %}">访问日志</a></li>
+        <li><a href="{% url "query:index" %}">返回首页</a></li>
+    </ul>
+
+</div>
+{% endblock %}
