@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static "index/index.css" %}">
+<div class="content">
+    <img src="{% static "index/layout_set_logo.png" %}">
+    <h3>欢迎使用昆明理工大学自助查询平台！</h3>
+    <p>
+        这是一个由昆明理工大学某信自院大二学生自主开发并维护的开源项目，旨在为昆工学子提供更为方便的查询服务。<br>
+        该项目内置了留言板，如您对项目有任何的建议（如新增功能）或反馈BUG等，欢迎在留言板中留言。<br>
+        由于项目处在开发初期，并没有经过系统测试，因此可能存在大量潜在BUG，欢迎您在Github反馈或向我的邮箱发送邮件。<br>
+        请注意：为了您的教务账户安全，该项目数据库并不存储任何您的账户相关敏感信息，也不会将通过教务网获取到的信息在后台保存。<br>
+        网站向您展示的查询结果均通过自动程序由<a href="http://jwctsp.kmust.edu.cn/integration/home">昆明理工大学教务管理信息系统</a>获取，最终查询结果以教务网上实际查询结果为准<br>
+        项目开源地址：<a href="https://github.com/samoyed24/KUST-Query">https://github.com/samoyed24/KUST-Query</a>，如果对你有帮助的话，请给我点个star吧~~~
+    </p>
+    <span id="startbutton" onclick="start()">开始使用</span>
+</div>
+<script>
+    function start()
+    {
+        window.location.href = "{% url 'query:menu' %}"
+    }
+</script>
+{% endblock %}

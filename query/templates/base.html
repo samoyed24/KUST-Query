@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index/base.css' %}">
+    <link rel="shortcut icon" HREF="{% static "index/favicon.ico" %}"
+</head>
+<body>
+    <div class="header">
+        <h1>昆明理工大学自助查询平台</h1>
+    </div>
+</body>
+{% block content %}
+{% endblock %}
+<div class="bottom">
+    <span><a href="https://docs.djangoproject.com/">Powered By Django 4.2</a><br><a href="https://beian.miit.gov.cn/#">辽ICP备2023008850号-1</a><br>如在使用过程中遇任何问题，请及时向samoyed24@qq.com反馈</span>
+</div>
+</html>
