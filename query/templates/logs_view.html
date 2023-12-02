@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static "index/index.css" %}">
+
+<div class="content">
+    <h2>访问日志</h2>
+    <span class="hint">您可以在此查看最近50条访问记录。</span><br>
+    {% if logging_list %}
+    <div class="query_result">
+        <table id="result_table">
+            <tr>
+                <td></td>
+                <td>访问IP</td>
+                <td>IP属地</td>
+                <td>访问时间</td>
+            </tr>
+            {% for log in logging_list %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{log.IP_address}}</td>
+                    <td>{{log.location}}</td>
+                    <td>{{log.time}}</td>
+                </tr>
+            {% endfor %}
+    {% else %} <h3>抱歉，当前无访问记录！</h3>
+            {% endif %}
+        </table>
+    </div>
+    <a href="{% url "query:menu" %}">返回菜单</a>
+</div>
+
+{% endblock %}

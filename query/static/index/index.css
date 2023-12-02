@@ -1,0 +1,96 @@
+.content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    background-color: #81d8d0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+}
+
+.content img {
+    max-width: 40%;
+    height:auto;
+}
+
+.formdiv {
+    display: flex;
+    text-align: left;
+}
+
+.menu > li > a {
+    text-decoration: none;
+    color:blue;
+}
+
+#startbutton {
+    display: flex;
+    font-family: "黑体";
+    font-size: large;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height:50px;
+    cursor: pointer;
+    background-color:saddlebrown;
+    border-radius: 5px;
+}
+
+#info_frame {
+    background-color:azure;
+    height:auto;
+    max-height: 200px;
+    width:auto; 
+    overflow:auto; 
+    border: 1px solid black;
+}
+
+#result_table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: auto;
+}
+
+#result_table td, tr{
+    border: 1px solid black;
+}
+
+.hint {
+    color:crimson; 
+    font-size:x-small;
+}
+
+.query_result {
+    background-color: azure; 
+    height:auto; 
+    width:auto;
+    margin: 10px;
+}
+
+.message_area {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.messages_content {
+    background-color:khaki;
+    height:auto;
+    max-height:500px;
+    width: auto;
+    max-width: 100%;
+    overflow:auto;
+    word-break: break-all;
+}
+
+.read_message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static "index/index.css" %}">
+
+<div class="content">
+    <h3>查询(模式:{{queryType}})</h3>
+    <p>查询须知：<br>
+       1.由于教务系统反应较慢，点击查询后10秒内返回结果属于正常，如返回超时信息请稍后重试（校园卡账单查询除外）<br>
+       2.因手机屏幕较小，页面显示功能兼容性差，请尽量使用下载功能在本地查看！<br>
+       3.如您是通过手机QQ、微信打开，建议您复制链接至浏览器再使用<br>
+       4.经测试，苹果手机下载xlsx文件后可能无法打开，如出现这种情况，请使用其他设备<br>
+       5.如按钮长时间为灰色或出现任何奇怪错误(返回500)，烦请您及时反馈!
+    </p>
+    <div class="formdiv">
+        <form action="{% url "query:get" %}" method="post" id="loginform">
+            {% csrf_token %}
+            学号：<input type="text" name="username" required><br>
+            密码：<input type="password" name="password" required><br>
+            <input type="hidden" name="queryType" value="{{queryType}}">
+            模式：<select name="getMode" id="modeSelect">
+            {% for selection in selections %}
+            <option value="{{forloop.counter}}">{{selection}}</option><br>
+            {% endfor %}
+            </select>
+            <input type="submit" name="提交" id="submit">
+            <span id="hint" class="hint" hidden></span>
+        </form><br>
+    </div>
+    <div class="result_area">
+        <a id="download"></a><br>
+        <div id="frame_show" hidden>
+            <button id="frame_change" onclick="frame_change()">展示/隐藏窗口</button><br>
+            <div id="info_frame" hidden>    
+                <table id="result_table">
+                </table>
+            </div>
+        </div>
+        <a href="{% url "query:menu" %}">返回菜单</a>
+    </div>
+</div>
+{% load static %}
+<script src="{% static "index/login.js" %}"></script>
+
+{% endblock %}

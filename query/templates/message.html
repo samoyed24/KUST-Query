@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static "index/index.css" %}">
+
+
+<div class="content">
+    <h2>留言板</h2>
+    <span class="hint">昵称32字以内，留言500字以内。</span><br>
+    <div class="message_area">
+        <form action="" method="post" id="message_form">
+            {% csrf_token %}
+            昵称：<br><input type="text" name="username" id="username" style="width:230px;" required><br>
+            留言内容：<br><textarea name="message" id="message" cols="30" rows="10" required></textarea><br>
+            <input type="submit" name="提交">
+        </form>
+    </div><br><br>
+    <div class="read_message">
+        <button id="frame_control" onclick="frame_control()">展开/关闭留言板</button><br>
+        <div class="messages_content">
+            {% if object_list %}
+            {% for message in object_list %}
+                <h3>{{message.username}} @ {{message.time}}:</h3>
+                <p>{{message.message}}</p>
+            {% endfor %}
+            {% else %}
+            <h3>抱歉，当前暂无留言内容！</h3>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+    <a href="{% url "query:menu" %}">返回菜单</a>
+</div>
+
+{% load static %}
+<script src="{% static "index/message.js" %}"></script>
+{% endblock content %}
